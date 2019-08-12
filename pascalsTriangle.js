@@ -1,6 +1,5 @@
-
+// iterative solution
 const pascalsTriangle = (n) => {
-    // iterative solution
     if (n < 1) {
         return 'Please enter a number greater than or equal to one';
     }
@@ -8,11 +7,11 @@ const pascalsTriangle = (n) => {
     let second = [1, 1];
     let final = []; 
     final.push(first);
-    if (n === 1) {
+    if (n == 1) {
         return final;
     }
     final.push(second);
-    if (n === 2) {
+    if (n == 2) {
         return final
     }
     let a =  2;
@@ -23,8 +22,8 @@ const pascalsTriangle = (n) => {
         for (let x = 1; x < start.length; x++){
             current.push(start[x] + start[x - 1]); 
         }
-        current.unshift(1);
-        current.push(1);
+        let temp = current;
+        current = [1].concat(temp).concat([1]);
         final.push(current);
         start = current;
         a++;
